@@ -1,5 +1,3 @@
-var Observable = require("FuseJS/Observable");
-
 var algorithms = require("algorithms");
 
 function clone(x) {
