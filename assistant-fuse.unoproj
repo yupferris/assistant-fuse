@@ -5,6 +5,8 @@
   	"FuseJS"
   ],
   "Includes": [
-    "*"
+    "*",
+    "*.js:Bundle",
+    "assets/*.png:Bundle"
   ]
 }

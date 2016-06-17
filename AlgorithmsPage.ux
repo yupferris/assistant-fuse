@@ -1,0 +1,31 @@
+<Page ux:Class="AlgorithmsPage">
+	<JavaScript>
+		var algorithms = require("algorithms");
+
+		function clone(x) {
+			return JSON.parse(JSON.stringify(x));
+		}
+
+		module.exports = {
+			algorithms: algorithms.map(function(x) {
+				var ret = clone(x);
+				ret.imageFileName = "assets/" + ret.imageFileName + ".png";
+				return ret;
+			})
+		};
+	</JavaScript>
+
+	<ScrollView>
+		<StackPanel>
+			<Each Items="{algorithms}">
+				<DockPanel Padding="10">
+					<Text Value="{name}" Dock="Left" Alignment="Center" TextAlignment="Center" Margin="0,0,10,0" MinWidth="20" />
+					<Image File="{imageFileName}" StretchDirection="DownOnly" Dock="Left" Margin="0,0,10,0" />
+
+					<Text Value="{moves}" Dock="Top" Margin="0,0,0,10" />
+					<Text Value="{comments}" TextWrapping="Wrap" FontSize="10" />
+				</DockPanel>
+			</Each>
+		</StackPanel>
+	</ScrollView>
+</Page>

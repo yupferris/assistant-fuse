@@ -1,2 +1,10 @@
 <App>
+	<DockPanel>
+		<StatusBarBackground Dock="Top" />
+		<BottomBarBackground Dock="Bottom" />
+
+		<Navigator DefaultTemplate="algorithms">
+			<AlgorithmsPage ux:Template="algorithms" />
+		</Navigator>
+	</DockPanel>
 </App>
