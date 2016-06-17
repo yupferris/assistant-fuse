@@ -1,0 +1,3 @@
+<Page ux:Class="PllPracticePage">
+	<AlgorithmPractice Type="pll" />
+</Page>

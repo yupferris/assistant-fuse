@@ -8,6 +8,7 @@
 
 		<Navigator DefaultTemplate="oll-practice">
 			<OllPracticePage ux:Template="oll-practice" />
+			<PllPracticePage ux:Template="pll-practice" />
 			<AlgorithmsPage ux:Template="algorithms" />
 		</Navigator>
 	</DockPanel>
