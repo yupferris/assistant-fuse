@@ -6,7 +6,8 @@
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
 
-		<Navigator DefaultTemplate="algorithms">
+		<Navigator DefaultTemplate="oll-practice">
+			<OllPracticePage ux:Template="oll-practice" />
 			<AlgorithmsPage ux:Template="algorithms" />
 		</Navigator>
 	</DockPanel>

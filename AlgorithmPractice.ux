@@ -1,0 +1,67 @@
+<Panel ux:Class="AlgorithmPractice">
+	<string ux:Property="Type" />
+
+	<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		var Database = require("Database");
+
+		var Type = this.Type;
+
+		var algorithms = Database.algorithms.where(function(x) {
+			return x.type == Type.value;
+		});
+
+		var displayText = Observable("ready");
+
+		// Makeshift enum :)
+		var idle = 1;
+		var countdown = 2;
+		var running = 3;
+
+		var state = idle;
+		var interval = null;
+
+		function clicked() {
+			switch (state) {
+				case idle:
+					state = countdown;
+					displayText.value = "3";
+					setTimeout(function() {
+						displayText.value = "2";
+						setTimeout(function() {
+							displayText.value = "1";
+							setTimeout(function() {
+								state = running;
+								interval = setInterval(function() {
+									var elapsed = "derrrrp";
+									displayText.value = elapsed;
+								}, 0);
+							}, 1000);
+						}, 1000);
+					}, 1000);
+					break;
+
+				case running:
+					state = idle;
+					clearInterval(interval);
+					displayText.value = "ready";
+					break;
+			}
+		}
+
+		module.exports = {
+			displayText: displayText,
+
+			clicked: clicked
+		};
+	</JavaScript>
+
+	<StackPanel HitTestMode="LocalBoundsAndChildren">
+		<Panel Width="228" Height="228">
+		</Panel>
+
+		<AText FontSize="30" Value="{displayText}" TextAlignment="Center" />
+
+		<Clicked Handler="{clicked}" />
+	</StackPanel>
+</Panel>
