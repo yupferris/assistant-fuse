@@ -5,13 +5,20 @@
 		var Observable = require("FuseJS/Observable");
 		var Database = require("Database");
 
+		var moment = require("moment.min");
+
 		var Type = this.Type;
 
-		var algorithms = Database.algorithms.where(function(x) {
-			return x.type == Type.value;
+		var algorithms;
+		Type.addSubscriber(function() {
+			algorithms = Database.algorithms.filter(function(x) {
+				return x.type == Type.value;
+			});
 		});
 
 		var displayText = Observable("ready");
+		var currentAlgorithm = Observable();
+		var showAlgorithm = Observable(false);
 
 		// Makeshift enum :)
 		var idle = 1;
@@ -19,22 +26,26 @@
 		var running = 3;
 
 		var state = idle;
-		var interval = null;
+		var interval;
+		var startTime;
 
 		function clicked() {
 			switch (state) {
 				case idle:
 					state = countdown;
+					currentAlgorithm.value = null;
+					showAlgorithm.value = false;
 					displayText.value = "3";
 					setTimeout(function() {
 						displayText.value = "2";
 						setTimeout(function() {
+							currentAlgorithm.value = algorithms[Math.floor(Math.random() * algorithms.length)];
 							displayText.value = "1";
 							setTimeout(function() {
 								state = running;
+								startTime = moment();
 								interval = setInterval(function() {
-									var elapsed = "derrrrp";
-									displayText.value = elapsed;
+									displayText.value = moment().diff(startTime, 'seconds', true);
 								}, 0);
 							}, 1000);
 						}, 1000);
@@ -44,13 +55,16 @@
 				case running:
 					state = idle;
 					clearInterval(interval);
-					displayText.value = "ready";
+					showAlgorithm.value = true;
 					break;
 			}
 		}
 
 		module.exports = {
 			displayText: displayText,
+			currentAlgorithmValid: currentAlgorithm.map(function(x) { return !!x; }),
+			currentAlgorithm: currentAlgorithm,
+			showAlgorithm: showAlgorithm,
 
 			clicked: clicked
 		};
@@ -58,9 +72,18 @@
 
 	<StackPanel HitTestMode="LocalBoundsAndChildren">
 		<Panel Width="228" Height="228">
+			<WhileTrue Value="{currentAlgorithmValid}">
+				<Image File="{currentAlgorithm.imageFileName}" ResampleMode="Nearest" />
+			</WhileTrue>
 		</Panel>
 
 		<AText FontSize="30" Value="{displayText}" TextAlignment="Center" />
+
+		<WhileTrue Value="{showAlgorithm}">
+			<Select Data="{currentAlgorithm}">
+				<Algorithm />
+			</Select>
+		</WhileTrue>
 
 		<Clicked Handler="{clicked}" />
 	</StackPanel>

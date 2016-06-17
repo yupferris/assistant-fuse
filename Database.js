@@ -1,7 +1,6 @@
 var Observable = require("FuseJS/Observable");
 
-var algorithms = Observable();
-algorithms.replaceAll(require("algorithms"));
+var algorithms = require("algorithms");
 
 function clone(x) {
 	return JSON.parse(JSON.stringify(x));

@@ -2,7 +2,7 @@
 Another Rubik's Cube trainer, this time on mobile.
 
 ## attribution
-assistant-fuse uses [Fuse](https://www.fusetools.com/), and its visual design is based on [Skeleton 2.0.4](http://getskeleton.com/).
+assistant-fuse uses [Fuse](https://www.fusetools.com/) and [Moment.js](http://momentjs.com/), and its visual design is based on [Skeleton 2.0.4](http://getskeleton.com/).
 
 Most of the algorithms used (including the diagrams) are from [Bob Burton's cubewhiz.com](http://www.cubewhiz.com/). There were a few that were swapped out/rotated at some point; unfortunately I don't remember when or where they came from.
 
