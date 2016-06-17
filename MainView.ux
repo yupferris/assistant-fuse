@@ -1,15 +1,54 @@
 <App>
 	<Font File="assets/Raleway-Regular.ttf" ux:Global="Raleway" />
+	<Font File="assets/Raleway-Bold.ttf" ux:Global="RalewayBold" />
+
 	<Text ux:Class="AText" Font="Raleway" />
 
+	<Text ux:Class="ButtonText" TextColor="White" Font="RalewayBold" />
+	<Panel ux:Class="MenuButton" Padding="0,20,0,20" HitTestMode="LocalBoundsAndChildren">
+		<string ux:Property="Text" />
+
+		<ButtonText Alignment="Center" Value="{Property Text}" />
+
+		<WhilePressed>
+			<Scale Factor=".85" Duration=".05" Easing="QuadraticInOut" />
+		</WhilePressed>
+	</Panel>
+
+	<iOS.StatusBarConfig Style="Light" />
+
+	<Router ux:Name="router" />
+
+	<JavaScript>
+		module.exports = {
+			ollPractice: function() {
+				router.goto("ollPractice");
+			},
+			pllPractice: function() {
+				router.goto("pllPractice");
+			},
+			algorithms: function() {
+				router.goto("algorithms");
+			}
+		};
+	</JavaScript>
+
 	<DockPanel>
-		<StatusBarBackground Dock="Top" />
+		<StatusBarBackground Dock="Top" Background="#33c3f0" />
 		<BottomBarBackground Dock="Bottom" />
 
-		<Navigator DefaultTemplate="oll-practice">
-			<OllPracticePage ux:Template="oll-practice" />
-			<PllPracticePage ux:Template="pll-practice" />
-			<AlgorithmsPage ux:Template="algorithms" />
-		</Navigator>
+		<Grid Columns="1*,1*,1*" Dock="Top">
+			<Rectangle Layer="Background" Fill="#33c3f0" />
+
+			<MenuButton Text="OLL Practice" Clicked="{ollPractice}" />
+			<MenuButton Text="PLL Practice" Clicked="{pllPractice}" />
+			<MenuButton Text="Algorithms" Clicked="{algorithms}" />
+		</Grid>
+
+		<PageControl Active="algorithms">
+			<OllPracticePage ux:Name="ollPractice" />
+			<PllPracticePage ux:Name="pllPractice" />
+			<AlgorithmsPage ux:Name="algorithms" />
+		</PageControl>
 	</DockPanel>
 </App>
