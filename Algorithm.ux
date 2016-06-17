@@ -1,0 +1,7 @@
+<DockPanel ux:Class="Algorithm" Padding="10">
+	<AText Value="{name}" Dock="Left" Alignment="Center" TextAlignment="Center" Margin="0,0,10,0" MinWidth="20" />
+	<Image File="{imageFileName}" StretchDirection="DownOnly" ResampleMode="Nearest" Dock="Left" Margin="0,0,10,0" />
+
+	<AText Value="{moves}" Dock="Top" Margin="0,0,0,10" />
+	<AText Value="{comments}" TextWrapping="Wrap" FontSize="10" />
+</DockPanel>
