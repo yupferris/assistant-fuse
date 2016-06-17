@@ -1,6 +1,13 @@
 # assistant-fuse
 Another Rubik's Cube trainer, this time on mobile.
 
+## description
+This is a basic Rubik's Cube trainer that contains a list of algorithms for [CFOP](https://en.wikipedia.org/wiki/CFOP_Method), as well as trainers to help memorize and internalize these algorithms.
+
+## screenshots
+![img_0006](https://cloud.githubusercontent.com/assets/3166056/16167658/8f338d0a-34ac-11e6-9524-bc0b711f1fcd.PNG)
+![img_0007](https://cloud.githubusercontent.com/assets/3166056/16167659/8f3a3a6a-34ac-11e6-9eff-3520777dcc3d.PNG)
+
 ## attribution
 assistant-fuse uses [Fuse](https://www.fusetools.com/) and [Moment.js](http://momentjs.com/), and its visual design is based on [Skeleton 2.0.4](http://getskeleton.com/).
 
