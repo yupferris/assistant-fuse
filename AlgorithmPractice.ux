@@ -70,8 +70,8 @@
 		};
 	</JavaScript>
 
-	<StackPanel HitTestMode="LocalBoundsAndChildren" Alignment="HorizontalCenter">
-		<Panel Width="228" Height="228">
+	<StackPanel HitTestMode="LocalBoundsAndChildren" Alignment="Center">
+		<Panel Width="150" Height="150">
 			<WhileTrue Value="{currentAlgorithmValid}">
 				<Image File="{currentAlgorithm.imageFileName}" ResampleMode="Nearest" />
 			</WhileTrue>
