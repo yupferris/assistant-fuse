@@ -10,3 +10,5 @@ For the web-based parent/sister project, see [assistant](https://github.com/yupf
 
 ## license
 This code is licensed under the MIT license (see LICENSE).
+
+The Raleway font (`assets/Raleway-Regular.ttf`) is distributed under the [SIL Open Font License, 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). See [Raleway on Font Squirrel](https://www.fontsquirrel.com/fonts/raleway) for more info.

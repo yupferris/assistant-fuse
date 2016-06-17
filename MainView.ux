@@ -1,4 +1,7 @@
 <App>
+	<Font File="assets/Raleway-Regular.ttf" ux:Global="Raleway" />
+	<Text ux:Class="AText" Font="Raleway" />
+
 	<DockPanel>
 		<StatusBarBackground Dock="Top" />
 		<BottomBarBackground Dock="Bottom" />
